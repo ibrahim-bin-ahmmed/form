@@ -139,14 +139,9 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 /* OLD */
-.container {
+.container img {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
 }
-
 h2 {
     font-size: 32px;
     margin-bottom: 20px;
