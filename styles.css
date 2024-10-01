@@ -8,7 +8,137 @@
 body {
     background-color: #f0f2f5;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
+header .logo h1 {
+    background: #45c039;
+    color: whitesmoke;
+    padding: 10px;
+border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f0b000; /* Hover color */
+}
+
+/* Hamburger menu (only visible on small screens) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Hide the checkbox */
+#menu-toggle {
+    display: none;
+}
+/* Section two */
+
+.course-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.course-details {
+    width: 65%;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.course-details h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.course-details ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #6d7668;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sidebar h2 {
+    color: #fff;
+}
+
+.instructor {
+    margin-bottom: 20px;
+}
+
+.instructor img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.instructor p {
+    color: #fff;
+    font-size: 16px;
+}
+
+.register-button {
+    margin-top: 20px;
+}
+
+.register-button button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-button button:hover {
+    background-color: #0056b3;
+}
+/* OLD */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -93,6 +223,66 @@ h2 {
 
 /* Media Query for mobile devices */
 @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide the menu initially */
+        background-color: rgba(0, 0, 0, 0.9);
+        height: 100vh;
+        width: 200px;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 20px;
+        transition: right 0.5s ease;
+    }
+
+    /* Show hamburger menu on small screens */
+    .hamburger {
+        display: flex;
+        z-index: 2;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+    }
+
+    /* When the checkbox is checked, show the menu */
+    #menu-toggle:checked + .hamburger + nav ul {
+        right: 0; /* Menu slides in */
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+/* Section Box two */
+.container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.course-details, .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    padding: 10px;
+}
+
+.instructor img {
+    width: 80px;
+}
+
+.instructor p {
+    font-size: 14px;
+}
+
+.register-button button {
+    width: 100%;
+    padding: 12px;
+}
+
+/* OLD */
     .contact-section {
         flex-direction: column;
         align-items: center;
@@ -123,5 +313,24 @@ h2 {
 
     .map iframe {
         height: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .course-details ul {
+        margin-left: 15px;
+    }
+
+    .instructor img {
+        width: 70px;
+    }
+
+    .instructor p {
+        font-size: 12px;
+    }
+
+    .register-button button {
+        font-size: 14px;
+        padding: 10px;
     }
 }
